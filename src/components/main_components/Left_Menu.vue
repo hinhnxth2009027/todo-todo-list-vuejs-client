@@ -63,7 +63,7 @@ export default {
         'Content-Type':'application/json',
         'token':`${checkUserlogin}`
       }
-      axios.post('https://my-todo-list-appp.herokuapp.com/api/get_all_work_day',data,{ headers }).then((response)=>{
+      axios.post('/api/get_all_work_day',data,{ headers }).then((response)=>{
         var data = response.data.data
         for (let index = data.length-1 ; index >=0 ; index--) {
           this.working_days.push(data[index])          
@@ -72,7 +72,7 @@ export default {
         var data_get_job_inday = {
             'working_day_code':data[data.length-1].working_day_code
         }      
-        axios.post('https://my-todo-list-appp.herokuapp.com/api/get_all_job_in_day',data_get_job_inday,{ headers }).then((response)=>{
+        axios.post('/api/get_all_job_in_day',data_get_job_inday,{ headers }).then((response)=>{
           var my_data = []
           for (let index = 0; index < response.data.data.length; index++) { 
             var sender = response.data.data[index]
@@ -97,7 +97,7 @@ export default {
         'Content-Type':'application/json',
         'token':`${checkUserlogin}`
       }
-      axios.post('https://my-todo-list-appp.herokuapp.com/api/create_new_working_day',working_data,{ headers }).then((response)=>{
+      axios.post('/api/create_new_working_day',working_data,{ headers }).then((response)=>{
         if(response.data.code === 201){          
          var data = response.data.data          
             this.working_days = data.reverse()          
@@ -120,7 +120,7 @@ export default {
         'token':`${checkUserlogin}`
       }
 
-      axios.post('https://my-todo-list-appp.herokuapp.com/api/get_all_job_in_day',data_get_job_inday,{ headers }).then((response)=>{
+      axios.post('/api/get_all_job_in_day',data_get_job_inday,{ headers }).then((response)=>{
           var my_data = []
           for (let index = 0; index < response.data.data.length; index++) { 
             var sender = response.data.data[index]

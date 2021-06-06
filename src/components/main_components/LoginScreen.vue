@@ -148,7 +148,7 @@ export default {
         this.valid_messg = "Vui lòng nhập mật khẩu an toàn hơn";
       } else {
         this.valid_messg = "";
-        axios.post("https://my-todo-list-appp.herokuapp.com/api/register", newUser).then(
+        axios.post("/api/register", newUser).then(
           (response) => {
             var res_data = response.data;
             if (res_data.code === 201) {
@@ -185,7 +185,7 @@ export default {
         this.valid_messg = "Vui lòng không bỏ chống password";
       } else {
         this.valid_messg = "";
-        axios.post("https://my-todo-list-appp.herokuapp.com/api/login", user).then(
+        axios.post("/api/login", user).then(
           (response) => {
             console.log(response.data);
             localStorage.setItem("user_token", response.data.data.token);

@@ -187,7 +187,7 @@ export default {
         'token':`${checkUserlogin}`,
         'today':this.curenDate
         }
-        axios.post('https://my-todo-list-appp.herokuapp.com/api/create_new_job_in_date',data,{ headers }).then((response)=>{
+        axios.post('/api/create_new_job_in_date',data,{ headers }).then((response)=>{
           console.log(response.data)
           this.mesage_err = ""
           this.mesage_good = response.data.message
@@ -218,7 +218,7 @@ export default {
         'Content-Type':'application/json',
         'token':`${checkUserlogin}`,
         }
-        axios.post('https://my-todo-list-appp.herokuapp.com/api/delete_job_in_day',dataa , { headers }).then((response)=>{
+        axios.post('/api/delete_job_in_day',dataa , { headers }).then((response)=>{
           alert('đã xóa : '+ work)
           this.$emit('job_indays',response.data.data)
           this.$emit('get_day',this.curenDate)
@@ -241,7 +241,7 @@ export default {
         'Content-Type':'application/json',
         'token':`${checkUserlogin}`,
         }
-        axios.post('https://my-todo-list-appp.herokuapp.com/api/update_done_job_in_day',dataa , { headers }).then((response)=>{
+        axios.post('/api/update_done_job_in_day',dataa , { headers }).then((response)=>{
           alert('đã hoàn thành : '+ work)
           this.$emit('job_indays',response.data.data)
           this.$emit('get_day',this.curenDate)
@@ -264,7 +264,7 @@ export default {
         'Content-Type':'application/json',
         'token':`${checkUserlogin}`,
         }
-        axios.post('https://my-todo-list-appp.herokuapp.com/api/update_NOT_COMPLETED_job_in_day',dataa , { headers }).then((response)=>{
+        axios.post('/api/update_NOT_COMPLETED_job_in_day',dataa , { headers }).then((response)=>{
           alert('đã khóa : '+ work+' dưới trạng thái không thể hoàn thành')
           this.$emit('job_indays',response.data.data)
           this.$emit('get_day',this.curenDate)
